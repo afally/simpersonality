@@ -1,0 +1,513 @@
+{
+	"info": {
+		"_postman_id": "949f571e-1a5d-4987-8a39-4dda2d5578cd",
+		"name": "Personality-test-questions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetQuestionList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/questions",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"questions"
+					]
+				},
+				"description": "Endpoint to fetch all the questions that have been posted to the database."
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/questions",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"questions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2229"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8b5-4ywpY0jJG1ThVp7kjyZ1eLSa8SQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 May 2023 14:42:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"question\": [\n            {\n                \"_id\": \"645ae7c5283831c5cccc2c5a\",\n                \"date\": \"1683679173381\",\n                \"number\": 3,\n                \"question\": \"During dinner, the discussion moves to a subject about which you know nothing at all. You:\",\n                \"name\": \"question\",\n                \"optiona\": \"Don’t dare show that you don’t know anything about the subject\",\n                \"optionb\": \"Barely follow the discussion\",\n                \"optionc\": \"Ask lots of questions to learn more about it\",\n                \"optiond\": \"Change the subject of discussion\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"645ae821283831c5cccc2c5d\",\n                \"date\": \"1683679265006\",\n                \"number\": 4,\n                \"question\": \"You are taking part in a guided tour of a museum. You:\",\n                \"name\": \"question\",\n                \"optiona\": \"Are a bit too far towards the back so don’t really hear what the guide is saying\",\n                \"optionb\": \"Follow the group without question\",\n                \"optionc\": \"Make sure that everyone is able to hear properly\",\n                \"optiond\": \"Are right up the front, adding your own comments in a loud voice\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"645ae88e283831c5cccc2c60\",\n                \"date\": \"1683679374024\",\n                \"number\": 5,\n                \"question\": \"During dinner parties at your home, you have a hard time with people who:\",\n                \"name\": \"question\",\n                \"optiona\": \"Ask you to tell a story in front of everyone else\",\n                \"optionb\": \"Talk privately between themselves\",\n                \"optionc\": \"Hang around you all evening\",\n                \"optiond\": \"Always drag the conversation back to themselves\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"64722ed1af0e5a7907b6723b\",\n                \"date\": \"1685204689211\",\n                \"number\": 1,\n                \"question\": \"You’re really busy at work and a colleague is telling you their life story and personal woes. You:\",\n                \"name\": \"question\",\n                \"optiona\": \"Don’t dare to interrupt them\",\n                \"optionb\": \"Think it’s more important to give them some of your time; work can wait\",\n                \"optionc\": \"Listen, but with only with half an ear\",\n                \"optiond\": \"Interrupt and explain that you are really busy at the moment\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"64722fe2af0e5a7907b6723e\",\n                \"date\": \"1685204962154\",\n                \"number\": 2,\n                \"question\": \"You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:\",\n                \"name\": \"question\",\n                \"optiona\": \"Look at your watch every two minutes\",\n                \"optionb\": \"Bubble with inner anger, but keep quiet\",\n                \"optionc\": \"Explain to other equally impatient people in the room that the doctor is always running late\",\n                \"optiond\": \"Complain in a loud voice, while tapping your foot impatiently\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "CreateQuestion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "number",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "question",
+							"value": "You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "question",
+							"type": "text"
+						},
+						{
+							"key": "optiona",
+							"value": "Look at your watch every two minutes",
+							"type": "text"
+						},
+						{
+							"key": "optionb",
+							"value": "Bubble with inner anger, but keep quiet",
+							"type": "text"
+						},
+						{
+							"key": "optionc",
+							"value": "Explain to other equally impatient people in the room that the doctor is always running late",
+							"type": "text"
+						},
+						{
+							"key": "optiond",
+							"value": "Complain in a loud voice, while tapping your foot impatiently",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/api/questions/addquestion",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"questions",
+						"addquestion"
+					]
+				},
+				"description": "Endpoint to post questions to the backend"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "number",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "question",
+									"value": "You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "question",
+									"type": "text"
+								},
+								{
+									"key": "optiona",
+									"value": "Look at your watch every two minutes",
+									"type": "text"
+								},
+								{
+									"key": "optionb",
+									"value": "Bubble with inner anger, but keep quiet",
+									"type": "text"
+								},
+								{
+									"key": "optionc",
+									"value": "Explain to other equally impatient people in the room that the doctor is always running late",
+									"type": "text"
+								},
+								{
+									"key": "optiond",
+									"value": "Complain in a loud voice, while tapping your foot impatiently",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/api/questions/addquestion",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"questions",
+								"addquestion"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "507"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1fb-CGoRoSFGcShHjrl+13AHJMvYKwA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 May 2023 16:29:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"newQuestion\": {\n            \"_id\": \"64722fe2af0e5a7907b6723e\",\n            \"date\": \"1685204962154\",\n            \"number\": 2,\n            \"question\": \"You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:\",\n            \"name\": \"question\",\n            \"optiona\": \"Look at your watch every two minutes\",\n            \"optionb\": \"Bubble with inner anger, but keep quiet\",\n            \"optionc\": \"Explain to other equally impatient people in the room that the doctor is always running late\",\n            \"optiond\": \"Complain in a loud voice, while tapping your foot impatiently\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UpdateQuestion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "number",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "question",
+							"value": "During dinner, the discussion moves to a subject about which you know nothing at all. You:",
+							"type": "text"
+						},
+						{
+							"key": "optiona",
+							"value": "Don’t dare show that you don’t know anything about the subject",
+							"type": "text"
+						},
+						{
+							"key": "optionb",
+							"value": "Barely follow the discussion",
+							"type": "text"
+						},
+						{
+							"key": "optionc",
+							"value": "Ask lots of questions to learn more about it",
+							"type": "text"
+						},
+						{
+							"key": "optiond",
+							"value": "Change the subject of discussion.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/api/questions/updatequestion/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"questions",
+						"updatequestion",
+						"3"
+					]
+				},
+				"description": "Endpoint to select a particular question and update the questions and options\n\nUse question number to select the question to update the options"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "number",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "question",
+									"value": "During dinner, the discussion moves to a subject about which you know nothing at all. You:",
+									"type": "text"
+								},
+								{
+									"key": "optiona",
+									"value": "Don’t dare show that you don’t know anything about the subject",
+									"type": "text"
+								},
+								{
+									"key": "optionb",
+									"value": "Barely follow the discussion",
+									"type": "text"
+								},
+								{
+									"key": "optionc",
+									"value": "Ask lots of questions to learn more about it",
+									"type": "text"
+								},
+								{
+									"key": "optiond",
+									"value": "Change the subject of discussion.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/api/questions/updatequestion/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"questions",
+								"updatequestion",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "420"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a4-9j1zkCKJvCJeHQ0Ve9N7lsvnBa0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 May 2023 16:58:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"645ae7c5283831c5cccc2c5a\",\n    \"date\": \"1683679173381\",\n    \"number\": 3,\n    \"question\": \"During dinner, the discussion moves to a subject about which you know nothing at all. You:\",\n    \"name\": \"question\",\n    \"optiona\": \"Don’t dare show that you don’t know anything about the subject\",\n    \"optionb\": \"Barely follow the discussion\",\n    \"optionc\": \"Ask lots of questions to learn more about it\",\n    \"optiond\": \"Change the subject of discussion\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteQuestion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/questions/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"questions",
+						"2"
+					]
+				},
+				"description": "Endpoint to delete a question"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/questions/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"questions",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "521"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"209-r1Dr7v7s63x0qXKJpt8n4adOHTA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 May 2023 20:50:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"deletedQuestion\": {\n            \"_id\": \"6473bbd5ea898dcd5505475e\",\n            \"date\": \"1685306325153\",\n            \"number\": 2,\n            \"question\": \"You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:\",\n            \"name\": \"question\",\n            \"optiona\": \"Look at your watch every two minutes\",\n            \"optionb\": \"Bubble with inner anger, but keep quiet\\n\",\n            \"optionc\": \"Explain to other equally impatient people in the room that the doctor is always running late\",\n            \"optiond\": \"Complain in a loud voice, while tapping your foot impatiently\",\n            \"__v\": 0\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}
