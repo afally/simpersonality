@@ -1,4 +1,4 @@
-const Question = require("../models/Question");
+const Question = require('../models/Question');
 
 const retrieveQuestion = (req, res) => {
   const { number } = req.body;
@@ -8,27 +8,25 @@ const retrieveQuestion = (req, res) => {
       .then((question) => {
         if (question) {
           return res.status(200).json({
-            status: "success",
+            status: 'success',
             data: {
               question,
             },
           });
         }
         return res.status(404).json({
-          status: "error",
-          message: "Question not found",
+          status: 'error',
+          message: 'Question not found',
         });
       })
-      .catch(() =>
-        res.status(500).json({
-          status: "error",
-          message: "Something went wrong",
-        })
-      );
+      .catch(() => res.status(500).json({
+        status: 'error',
+        message: 'Something went wrong',
+      }));
   } else {
     return res.status(404).json({
-      status: "error",
-      message: "No number selected",
+      status: 'error',
+      message: 'No number selected',
     });
   }
 

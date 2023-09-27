@@ -1,4 +1,4 @@
-const Question = require("../models/Question");
+const Question = require('../models/Question');
 
 const getQuestions = async (req, res) => {
   try {
@@ -6,21 +6,21 @@ const getQuestions = async (req, res) => {
 
     if (!question) {
       return res.status(404).json({
-        status: "error",
-        message: "No Questions",
+        status: 'error',
+        message: 'No Questions',
       });
     }
 
     return res.status(200).json({
-      status: "success",
+      status: 'success',
       data: {
         question,
       },
     });
   } catch {
     return res.status(500).json({
-      status: "error",
-      message: "Something went wrong",
+      status: 'error',
+      message: 'Something went wrong',
     });
   }
 };

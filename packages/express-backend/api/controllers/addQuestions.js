@@ -1,4 +1,4 @@
-const Question = require("../models/Question");
+const Question = require('../models/Question');
 
 const addQuestions = (req, res) => {
   const date = Date.now(); // yyyy-mm-dd.
@@ -14,7 +14,7 @@ const addQuestions = (req, res) => {
     Question.findOne({ number: req.body.number })
       .then((question) => {
         if (question) {
-          return res.status(400).json({ question: "Question number exists" });
+          return res.status(400).json({ question: 'Question number exists' });
         }
         const newQuestion = new Question({
           date,
@@ -29,32 +29,28 @@ const addQuestions = (req, res) => {
         newQuestion
           .save()
 
-          .then((savedQuestion) =>
-            res.status(200).json({
-              status: "success",
-              data: {
-                savedQuestion,
-              },
-            })
-          )
-          .catch(() =>
-            res.status(500).json({
-              status: "error",
-              message: "something went wrong",
-            })
-          );
+          .then((savedQuestion) => res.status(200).json({
+            status: 'success',
+            data: {
+              savedQuestion,
+            },
+          }))
+          .catch(() => res.status(500).json({
+            status: 'error',
+            message: 'something went wrong',
+          }));
         return null;
       })
       .catch(() => {
         res.status(500).json({
-          status: "error",
-          message: "something went wrong",
+          status: 'error',
+          message: 'something went wrong',
         });
       });
   } else {
     return res.status(404).json({
-      status: "error",
-      message: "Nos item selected",
+      status: 'error',
+      message: 'Nos item selected',
     });
   }
   return null;

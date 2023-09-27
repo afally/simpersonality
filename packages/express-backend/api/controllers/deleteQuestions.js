@@ -1,4 +1,4 @@
-const Question = require("../models/Question");
+const Question = require('../models/Question');
 
 const deleteQuestions = (req, res) => {
   const { questionId } = req.params;
@@ -6,13 +6,13 @@ const deleteQuestions = (req, res) => {
     .then((deletedQuestion) => {
       if (!deletedQuestion) {
         return res.status(404).json({
-          status: "error",
-          message: "Question not found",
+          status: 'error',
+          message: 'Question not found',
         });
       }
 
       return res.status(200).json({
-        status: "success",
+        status: 'success',
         data: {
           deletedQuestion,
         },

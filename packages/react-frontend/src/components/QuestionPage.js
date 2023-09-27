@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import saveExtrovertCountToLocalStorage from "../util/saveExtrovertCountToLocalStorage";
-import saveIntrovertCountToLocalStorage from "../util/saveIntrovertCountToLocalStorage";
 import { MDBListGroup, MDBListGroupItem } from "mdb-react-ui-kit";
 import {
   MDBCard,
@@ -11,16 +9,18 @@ import {
   MDBCardBody,
   MDBCardTitle,
 } from "mdb-react-ui-kit";
+import { ResultContext } from "./ResultContext";
 
 const Questionpage = () => {
   const [question, setQuestion] = useState([]);
-  const [extrovert, setExtrovert] = useState(1);
-  const [introvert, setIntrovert] = useState(1);
+  const [extrovert, setExtrovert] = useState(0);
+  const [introvert, setIntrovert] = useState(0);
+  const { setResult } = useContext(ResultContext);
 
-  //To render questions from backend
+  const resultCompute = (extrovert, introvert) =>
+    extrovert > introvert ? "Extrovert" : "Introvert";
+
   const renderQuestions = () => {
-    localStorage.clear();
-
     axios
       .get(`http://localhost:3001/api/questions/`)
       .then((res) => {
@@ -36,11 +36,9 @@ const Questionpage = () => {
 
   const handleButtonClick = (option, count, questionIndex) => {
     if (option === "a" || option === "b") {
-      setExtrovert((prevExtroverts) => prevExtroverts + count);
-      console.log([option, count, questionIndex, extrovert]);
+      setExtrovert((prevExtrovert) => prevExtrovert + count);
     } else if (option === "c" || option === "d") {
       setIntrovert((prevIntrovert) => prevIntrovert + count);
-      console.log([option, count, questionIndex, introvert]);
     }
 
     setQuestion((prevQuestions) => {
@@ -61,6 +59,7 @@ const Questionpage = () => {
           <MDBListGroup style={{ width: "100%", margin: "0 auto" }} light>
             <MDBListGroupItem className="px-3">
               <button
+                data-testid="optiona"
                 className={
                   item.selectedOption === "a"
                     ? "active-button"
@@ -69,7 +68,6 @@ const Questionpage = () => {
                 onClick={() => {
                   if (!item.selectedOption) {
                     handleButtonClick("a", 1, index);
-                    saveExtrovertCountToLocalStorage(extrovert);
                   }
                 }}
               >
@@ -79,6 +77,7 @@ const Questionpage = () => {
             </MDBListGroupItem>
             <MDBListGroupItem className="px-3">
               <button
+                data-testid="optionb"
                 className={
                   item.selectedOption === "b"
                     ? "active-button"
@@ -87,7 +86,7 @@ const Questionpage = () => {
                 onClick={() => {
                   if (!item.selectedOption) {
                     handleButtonClick("b", 1, index);
-                    saveExtrovertCountToLocalStorage(extrovert);
+                    //saveExtrovertCountToLocalStorage(extrovert);
                   }
                 }}
               >
@@ -97,6 +96,7 @@ const Questionpage = () => {
             </MDBListGroupItem>
             <MDBListGroupItem className="px-3">
               <button
+                data-testid="optionc"
                 className={
                   item.selectedOption === "c"
                     ? "active-button"
@@ -105,7 +105,6 @@ const Questionpage = () => {
                 onClick={() => {
                   if (!item.selectedOption) {
                     handleButtonClick("c", 1, index);
-                    saveIntrovertCountToLocalStorage(introvert);
                   }
                 }}
               >
@@ -115,6 +114,7 @@ const Questionpage = () => {
             </MDBListGroupItem>
             <MDBListGroupItem className="px-3">
               <button
+                data-testid="optiond"
                 className={
                   item.selectedOption === "d"
                     ? "active-button"
@@ -123,7 +123,7 @@ const Questionpage = () => {
                 onClick={() => {
                   if (!item.selectedOption) {
                     handleButtonClick("d", 1, index);
-                    saveIntrovertCountToLocalStorage(introvert);
+                    //saveIntrovertCountToLocalStorage(introvert);
                   }
                 }}
               >
@@ -172,6 +172,10 @@ const Questionpage = () => {
           style={{ display: "none", textAlign: "center", marginTop: "50px" }}
         >
           <Link
+            onClick={() => {
+              console.log(extrovert, introvert);
+              setResult(resultCompute(extrovert, introvert));
+            }}
             className="btn btn-primary btn-lg"
             to="./answer"
             style={{ textDecoration: "none", margin: "0 auto" }}

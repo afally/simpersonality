@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import result from "../util/result";
+import { useContext } from "react";
+import { ResultContext } from "./ResultContext";
 
-export const Answer = () => {
+const Answer = () => {
   const style = {
     margin: "auto",
     padding: "10% '20%' 20% 10%",
@@ -19,23 +19,22 @@ export const Answer = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
-  const [answer, setAnswer] = useState("");
 
-  function scrollToTestDiv() {
-    const divElement = document.getElementById("answer");
-    divElement.scrollIntoView({ block: "end" });
-  }
+  const { result } = useContext(ResultContext);
 
-  useEffect(() => {
-    setAnswer(result());
+  // function scrollToTestDiv() {
+  //   const divElement = document.getElementById("answer");
+  //   divElement.scrollIntoView({ block: "end" });
+  // }
 
-    scrollToTestDiv();
-  }, []);
+  // useEffect(() => {
+  //   scrollToTestDiv();
+  // }, []);
 
   return (
     <div id="answer" style={style}>
       <h1 className="mb-3 text-center text-black" style={{ fontSize: "7vh" }}>
-        {answer}
+        {result}
       </h1>
     </div>
   );
