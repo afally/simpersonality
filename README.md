@@ -95,7 +95,7 @@ npm install
 Once you have installed the dependencies, you can start the web application from the root directory using the command below
 
 ```bash
-npm run run:both
+npm run start:both
 ```
 
 ### Running Tests
